@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carta</title>
+    
+</head>
+
+<style>
+    body {
+  background-color:#35ce5e;
+  font-size: 1.4vw;
+  text-align: left;
+  color:#fff;
+  padding-top:2em;
+}
+h1 {
+  padding-left: 3.5vw;
+  max-width: 90%;
+}
+
+* { color:#fff; text-decoration: none;
+}
+</style>
+<body>
+    
+<h1>FELIZ CUMPLEAÑOOOSSS ❤ Jimena TQM </h1>
+
+<div style="padding: 2px;"></div>
+
+<h1>
+    <a href="" class="typewrite" data-period="20" data-type='["Hola Amor, ¿Como estas? u.u ","Te deseo un Feliz cumpleaños, espero pases super bien este día, te escribo esto con mucho amor.😘", "Eres una persona increíble que ha llegado a mi vida, y que agradezco un montón que hayamos coincidido. ","_", "Eres una persona fuerte, valiente, talentosa, linda, increíble, amable, enfocada, diciplinada, inteligente, respetuosa, decisiva, atenta, agradable, graciosa, todas estas cosas y muchas más te hacen ser tú, la persona más bonita que ha llegado a mi vida, y que no sé por qué le prestó atención a un bobo como yo. ","Tienes un corazón hermoso y único con el que das mucho amor, el cual he recibido en todos estos días/semanas/meses y quiero que sepas que me haces una persona muy feliz. (NUNCA TE VAYAS DE MI VIDA :c) ","Siempre se tu, con tú linda personalidad y tú linda sonrisa que contagia, y tú lindo pelo, y tús lindos ojos y tús lindas pestañas, y tús lindas cejas, y tú linda piel, y tú linda nariz, y tú linda boca, y tú lindo cuerpo. ","Me encanta pasar tiempo contigo y espero pase a tu lado en muchos cumpleaños más. ","Je t´aime  ❤","Jp","_"]'>
+      <span class="wrap"></span>
+    </a>
+  </h1>
+</body>
+
+<script>var TxtType = function(el, toRotate, period) {
+    this.toRotate = toRotate;
+    this.el = el;
+    this.loopNum = 0;
+    this.period = parseInt(period, 10) || 2000;
+    this.txt = '';
+    this.tick();
+};
+
+TxtType.prototype.tick = function() {
+    var i = this.loopNum % this.toRotate.length;
+    var fullTxt = this.toRotate[i];
+
+    // Si el texto actual no está completo, continúa agregando caracteres
+    if (this.txt.length < fullTxt.length) {
+        this.txt = fullTxt.substring(0, this.txt.length + 1);
+    }
+    // Si el texto actual está completo, crea un nuevo elemento y comienza a escribir en él
+    else {
+        var newEl = document.createElement('div');
+        newEl.innerHTML = '<span class="wrap">' + fullTxt + '</span>';
+        this.el.parentNode.insertBefore(newEl, this.el);
+        this.loopNum++;
+        this.txt = '';
+    }
+
+    // Actualiza el contenido del elemento actual con el texto actualizado
+    this.el.innerHTML = '<span class="wrap">' + this.txt + '</span>';
+    // Establece un retraso antes del próximo paso de la animación
+    if (this.loopNum >= this.toRotate.length){
+    }
+    else{
+        
+        var that = this;
+    setTimeout(function() {
+        window.scrollBy(0, 10);
+        that.tick();
+    }, this.period);
+    }
+};
+
+window.onload = function() {
+    var elements = document.getElementsByClassName('typewrite');
+    for (var i = 0; i < elements.length; i++) {
+        var toRotate = elements[i].getAttribute('data-type');
+        var period = elements[i].getAttribute('data-period');
+        if (toRotate) {
+            new TxtType(elements[i], JSON.parse(toRotate), period);
+        }
+    }
+    // INJECT CSS
+    var css = document.createElement("style");
+    css.type = "text/css";
+    css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
+    document.body.appendChild(css);
+};
+</script>
+
+</html>
